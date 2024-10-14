@@ -23,24 +23,35 @@
 
         $userLogin = $_POST['login'];
         $userPassword = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
 
         if (strlen($userLogin) > 30 || strlen($userPassword) > 20) {
             $errorMessage = "Логин не должен превышать 30 символов, а пароль — 20.";
         }
         else {
-            
-            $sql = "SELECT * FROM users WHERE login = '$userLogin' AND password = '$userPassword'";
-        
-            $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-                // Вход успешен
-                $user = $result->fetch_assoc();
-                setcookie("login", $user['login'], time() + 604800, "/");
-                header("Location: index.php");
-            } else {
-                $errorMessage = "Неверные данные пользователя";
+            if ($userPassword !== $confirm_password) {
+                $errorMessage = "Пароли не совпадают!";
             }
+            else {
+                $sql = "INSERT INTO users (login, password) VALUES ('$userLogin', '$userPassword')";
+                
+                $result = $conn->query($sql);
+
+                $sql = "SELECT * FROM users WHERE login = '$userLogin' AND password = '$userPassword'";
+
+                $result = $conn->query($sql);
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        $user = $result->fetch_assoc();
+                        setcookie("login", $user['login'], time() + 604800, "/");
+                        header("Location: index.php");
+                    }
+                    else {
+                        $errorMessage = "Такого пользователя нет";
+                    }
+            }
+           
         } 
     }
     $conn->close();
@@ -58,12 +69,15 @@
 </head>
 <body>
     <center>
-        <form action="login.php" method="post">
-            <h1>Войти:</h1>
+        <form action="registration.php" method="post">
+            <h1>Зарегестрироваться:</h1>
             <p>Логин:</p>
             <input type="text" name="login" id="" maxlength="30" required>
             <p>Пароль:</p>
-            <input type="password" name="password" id="" maxlength="30" required><br><br>
+            <input type="password" name="password" id="" minlength="6" maxlength="30" required><br><br>
+            <p>Подтвердить пароль:</p>
+            <input type="password" name="confirm_password" id="" minlength="6" maxlength="30" required><br>
+
             <?php if ($errorMessage): ?>
                 <div style="color: red;"><?= htmlspecialchars($errorMessage) ?></div> <!-- Вывод ошибки -->
             <?php endif; ?>
