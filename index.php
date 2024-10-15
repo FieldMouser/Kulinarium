@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кулинарий!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -19,7 +20,15 @@
             
         ?>
     </header>
-    <div class="content"></div>
+    <div class="content">
+        <center>
+        <?php
+        if (!empty($login)){
+            echo '<p><a href="newRecipe.php">Создать свой рецепт</a></p>';
+        } 
+                ?>
+        </center>
+    </div>
     <footer><center><p>Пока еще тестовая страница</p></center></footer>
 </body>
 </html>
