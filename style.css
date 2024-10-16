@@ -8,6 +8,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f5e5; /* Светлый кремовый фон */
     color: #4b3c2a; /* Тёмно-коричневый цвет текста */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Обеспечивает, что body занимает минимум 100% высоты окна */
 }
 
 header {
@@ -40,12 +43,13 @@ header a:hover {
 }
 
 .content {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #fff8e1; /* Очень светлый кремовый цвет */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><circle cx="10" cy="10" r="8" fill="%23d1b68c"/><circle cx="30" cy="30" r="8" fill="%23d1b68c"/><rect x="50" y="10" width="20" height="20" fill="%23d1b68c"/><path d="M 70 70 Q 80 40 90 70" stroke="%23d1b68c" fill="none" stroke-width="2"/></svg>');
+    background-repeat: repeat; /* Повторять изображение */
+    flex: 1; /* Позволяет контенту занимать оставшееся пространство */
 }
 
 footer {
@@ -53,7 +57,42 @@ footer {
     padding: 15px;
     background-color: #d1b68c; /* Светло-коричневый цвет */
     color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+}
+
+.recipe-card {
+    background-color: #fff; /* Белый фон для карточки */
+    border-radius: 5px;
+    padding: 30px; /* Увеличены отступы */
+    margin: 20px; /* Увеличен отступ между карточками */
+    width: 90%; /* Ширина карточки 90% от родителя */
+    max-width: 800px; /* Максимальная ширина карточки увеличена */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавлены тени */
+    transition: transform 0.3s; /* Анимация при наведении */
+}
+
+.recipe-card:hover {
+    transform: scale(1.05); /* Увеличение карточки при наведении */
+}
+
+.recipe-title {
+    font-size: 2em; /* Увеличен размер заголовка */
+    margin-bottom: 15px; /* Увеличен отступ под заголовком */
+}
+
+.recipe-ingredients, .recipe-instructions {
+    margin: 10px 0; /* Увеличены отступы для ингредиентов и инструкций */
+}
+
+.newRecipe {
+    color: #4b3c2a;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #d1b68c; /* Цвет фона ссылки */
+    transition: background-color 0.3s;   
+}
+
+.newRecipe:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
