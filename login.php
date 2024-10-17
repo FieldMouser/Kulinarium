@@ -55,10 +55,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <center>
-        <form action="login.php" method="post">
+        <form action="login.php" method="post" class="content">
+            <div class="recipe-card">
             <h1>Войти:</h1>
             <p>Логин:</p>
             <input type="text" name="login" id="" maxlength="30" required>
@@ -68,8 +69,9 @@
                 <div style="color: red;"><?= htmlspecialchars($errorMessage) ?></div> <!-- Вывод ошибки -->
             <?php endif; ?>
             <button type="submit">Войти</button>
+            </div>
+            
         </form>
-    </center>
 
 </body>
 </html>
