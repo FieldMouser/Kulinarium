@@ -17,7 +17,7 @@ $login = isset($_COOKIE['login']) ? $_COOKIE['login'] : '';
                 <?php
             
             if (!empty($login)){
-                echo "<p>Вы вошли как $login </p> <p><a href='logout.php'>(Выйти)</a></p> ";
+                echo "<p>Вы вошли как $login </p> <p><a href='logout.php'>Выйти</a></p> ";
             } 
             else {
                 echo '<p><a href="login.php">Войти</a></p> <p><a href="registration.php">Зарегистрироваться</a></p>'; 
@@ -43,25 +43,32 @@ $login = isset($_COOKIE['login']) ? $_COOKIE['login'] : '';
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
+
+            if (!empty($login)){
+                echo '<p><a href="newRecipe.php" class="newRecipe">Создать свой рецепт</a></p>';
+            }
                     
-            $sql = $conn->query("SELECT * FROM recipes");
+            $sql = $conn->query("SELECT * FROM recipes ORDER BY id DESC");
+
 
             if ($sql && $sql->num_rows > 0) {
                 while ($recipe = $sql->fetch_assoc()) {
+                    $title = strip_tags($recipe['title']);
+                    $user_name = strip_tags($recipe['user_name']);
+                    $ingredients = strip_tags($recipe['ingredients']);
+                    $instructions = strip_tags($recipe['instructions']);
                     echo "<div class='recipe-card'>";
-                    echo "<h2 class='recipe-title'>{$recipe['title']}</h2>";
-                    echo "<p class='recipe-ingredients'>Создал рецепт: {$recipe['user_name']}</p>";
-                    echo "<p class='recipe-ingredients'>Ингредиенты: {$recipe['ingredients']}</p>";
-                    echo "<p class='recipe-instructions'>Инструкции: {$recipe['instructions']}</p>";
+                    echo "<h2 class='recipe-title'>{$title}</h2>";
+                    echo "<p class='recipe-ingredients'>Создал рецепт: {$user_name}</p>";
+                    echo "<p class='recipe-ingredients'>Ингредиенты: {$ingredients}</p>";
+                    echo "<p class='recipe-instructions'>Инструкции: {$instructions}</p>";
                     echo "</div>";
                 }
             } else {
                 echo "<p>Нет рецептов для отображения.</p>";
             }
-
-            if (!empty($login)){
-                echo '<p class="newRecipe"><a href="newRecipe.php">Создать свой рецепт</a></p>';
-            } 
+          
+        
 
             $conn->close(); // Закрываем соединение
         

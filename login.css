@@ -1,0 +1,94 @@
+body {
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    height: 100vh; /* Занимает всю высоту окна */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><circle cx="10" cy="10" r="8" fill="%23d1b68c"/><circle cx="30" cy="30" r="8" fill="%23d1b68c"/><rect x="50" y="10" width="20" height="20" fill="%23d1b68c"/><path d="M 70 70 Q 80 40 90 70" stroke="%23d1b68c" fill="none" stroke-width="2"/></svg>');
+    background-color: #f9f5e5; /* Цвет фона страницы */
+    background-repeat: repeat; /* Повторяем фон */
+    color: #4b3c2a; /* Тёмно-коричневый цвет текста */
+    font-family: Arial, sans-serif; /* Убедитесь, что шрифт установлен для всего тела */
+    overflow: auto;
+}
+
+.login-form {
+    width: 50%; /* Ширина формы */
+}
+
+.new-recipe-form {
+    width: 80%; /* Ширина формы */
+}
+
+.new-recipe-card {
+    background-color: #fff; /* Цвет фона карточки */
+    border-radius: 10px; /* Скругление углов */
+    padding: 20px; /* Отступы внутри карточки */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Тень для глубины */
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: center; /* Центрируем содержимое по горизонтали */
+    width: 100%; /* Увеличение ширины карточки */
+    max-width: 600px; /* Максимальная ширина карточки */
+    box-sizing: border-box;
+}
+
+.recipe-card {
+    font-family: Arial, sans-serif; /* Убедитесь, что здесь указан тот же шрифт */
+}
+
+.recipe-card {
+    background-color: #fff; /* Цвет фона карточки */
+    border-radius: 10px; /* Скругление углов */
+    padding: 20px; /* Отступы внутри карточки */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Тень для глубины */
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: center; /* Центрируем содержимое по горизонтали */
+}
+
+h1 {
+    margin-bottom: 20px; /* Отступ под заголовком */
+    font-family: Arial, sans-serif; /* Убедитесь, что заголовок использует тот же шрифт */
+    color: #4b3c2a; /* Цвет заголовка */
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Увеличение размера шрифта полей */
+    transition: border-color 0.3s; /* Плавный переход цвета рамки */
+    max-width: 100%;
+}
+
+textarea {
+    resize: none; /* Запретить изменение размера */
+    height: 100px; /* Высота текстовой области */
+    width: 100%; /* Занимает всю ширину карточки */
+    height: 100px; /* Высота текстовой области */
+}
+
+button {
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Скругление углов */
+    background-color: #d1b68c; /* Цвет кнопки */
+    color: white; /* Цвет текста на кнопке */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+    font-size: 16px; /* Увеличение размера шрифта кнопки */
+}
+
+button:hover {
+    background-color: #a18c6c; /* Темный цвет кнопки при наведении */
+}
+
+input:focus, textarea:focus  {
+    outline: none; /* Убираем обводку при фокусе */
+    border: 1px solid #d1b68c; /* Опционально: измените цвет рамки на желаемый */
+}
+
+
+

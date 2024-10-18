@@ -27,11 +27,12 @@
         } 
         else {
             echo '<h1>Для добавления рецепта вам нужно войти в аккаунт!</h1><br> <a href="login.php">Войти</a> <br> или <br> 
-            <a href="registration.php">Войти</a>'; 
+            <a href="registration.php">Зарегистрироваться</a>'; 
         }
         
         
         
     }
+    header("Location: index.php");
     
     ?>

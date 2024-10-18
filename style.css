@@ -84,15 +84,21 @@ footer {
 }
 
 .newRecipe {
-    color: #4b3c2a;
-    text-decoration: none;
-    padding: 10px 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    background-color: #d1b68c; /* Цвет фона ссылки */
-    transition: background-color 0.3s;   
+    display: inline-block; /* Сделать элемент блочным для корректного отображения */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 15px 20px; /* Увеличенные отступы для большего размера */
+    margin-top: 15px;
+    border-radius: 8px; /* Увеличенный радиус скругления */
+    background-color: #b59a6a; /* Более насыщенный цвет фона кнопки */
+    font-size: 1.2em; /* Увеличенный размер шрифта */
+    font-weight: bold; /* Жирный текст */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Тень для глубины */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный переход для фона и размера */
 }
 
 .newRecipe:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: #a18c6c; /* Темный цвет фона при наведении */
+    transform: scale(1.05); /* Увеличение размера кнопки при наведении */
 }
+
