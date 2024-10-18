@@ -71,7 +71,7 @@
 <body>
         <form action="registration.php" method="post" class="login-form">
             <div class="recipe-card">
-            <h1>Зарегестрироваться:</h1>
+            <h1>Зарегистрироваться:</h1>
             <p>Логин:</p>
             <input type="text" name="login" id="" maxlength="30" required>
             <p>Пароль:</p>
